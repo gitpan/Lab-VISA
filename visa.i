@@ -1,16 +1,13 @@
-/*
-$VERSION=sprintf("1.00_%03d", q$Revision: 82 $ =~ / (\d+) /);
-*/
+/* $Id: visa.i 251 2005-12-08 23:24:40Z schroeer $ */
 
 %module VISA
 %{
-#include "/usr/local/vxipnp/linux/include/visa.h"
+#include "visa.h"
 %}
 
 %include "visadef.i"
 %include "typemaps.i"
 
-/*%include "cstring.i"*/
 %define %cstring_output_maxsize(TYPEMAP, SIZE)
 %typemap(in) (TYPEMAP, SIZE){
     $2 = ($2_ltype)SvIV($input);

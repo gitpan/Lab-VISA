@@ -1,5 +1,7 @@
 #!/usr/bin/perl
-#$Id: 1.t 80 2005-11-10 22:53:05Z schroeer $
+#$Id: 1.t 237 2005-12-07 21:41:08Z schroeer $
+
+# This test currently sucks.
 
 use strict;
 use Test::More tests => 10;

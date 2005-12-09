@@ -1,9 +1,10 @@
+MANIFEST			This list of files
+META.yml
 Makefile.PL
-MANIFEST
 README
-t/1.t
-visa.i
 VISA.pm
 VISA.pod
+t/1.t
+visa.i
 visa_wrap.cxx
 visadef.i
