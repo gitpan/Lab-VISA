@@ -1,24 +1,26 @@
-README for VISA
-$VERSION = 1.11
-===============
+README for Lab::VISA
+-----------------------------------------------------------------------
 
 This library offers a perl interface to National Instrument's NI-VISA library.
 
 With this library you can easily control the instruments in your lab (multimeters, voltage
-sources, magnet sources, pulse generators etc.) from perl. You can perform
-complicated measurement jobs with just some perl loops.
+sources, magnet sources, pulse generators etc.) with Perl. You can perform
+complicated measurement jobs with just some Perl loops.
 
-It comes even better. The general VISA::Instrument class reduces the
-communication overhead to a minimum. And the specialized instrument classes
-(virtual instruments) like the VISA::Instrument::HP34401A class offer
-even more high level comfort. Everything is prepared and waiting for you.
+Even better: The general L<Lab::Instrument|Lab::Instrument> class reduces the
+communication overhead to minimal C<read>, C<write> and C<query> methods.
+On top of this, there are specialized instrument classes (virtual instruments) such as
+L<Lab::Instrument::HP34401A|Lab::Instrument::HP34401A>, that offer
+even more high level comfort with methods such as C<read_voltage>.
+
+The L<Lab::Tools|Lab::Tools> package offers classes to simplify the task
+of logging data to disk and maintaining this data.
 
 
 INSTALLATION
 ------------
 
-This library has been tested to work on Linux and Windows. Installation is trivial
-since precompiled binary .ppm files are available for Windows and Linux (for perl 5.8.x).
+This library has been tested to work on Linux and Windows.
 
 Before you start, you must have the VISA library by National Instrument
 installed. If you plan to use GPIB connections (which is very likely), you must also
@@ -30,13 +32,6 @@ See National Instrument's website at
  http://digital.ni.com/softlib.nsf/webcategories/85256410006C055586256BBB002C0E91?opendocument&node=132060_US
 
  http://ni.com/linux/ni488dl.htm
-
-
-Now simply install the ppm distribution of the module with (same for Windows and Linux)
-
- ppm install http://www.nano.physik.uni-muenchen.de/svn/lab/trunk/VISA/Lab-VISA.ppd
-
-That's it!
 
 
 BUILDING
@@ -61,11 +56,17 @@ In case the compiler or linker cannot find certain include files (e.g. visa.h) o
 adjust the platform specific lines in Makefile.PL where indicated. They are currently set
 to match my local setup. Don't know if these things could ever be found automatically.
 
+IMPORTANT NOTE: The swig-based wrapper code does NOT compile with plain perl 5.8.8. No swig code does, due
+to a bug in this perl release. In order to make it work, either use another version of
+perl or apply the patch described in this message and recompile your perl:
+
+http://www.xray.mpe.mpg.de/mailing-lists/perl5-porters/2006-02/msg00572.html.
+
 
 COPYRIGHT AND LICENCE
 ---------------------
 
-Copyright (C) 2004/2005 Daniel Schröer
+Copyright (C) 2004-2006 Daniel Schröer
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself. 

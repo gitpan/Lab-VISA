@@ -9,7 +9,7 @@ use ExtUtils::MakeMaker;
 # If you do so, also un-comment the 'clean' section below
 # to delete the swig-generated files when doing 'make clean'.
 
-#`swig -perl5 -module Lab::VISA -c++ visa.i`;
+#system("swig -perl5 -module Lab::VISA -c++ visa.i");
 
 WriteMakefile(
 #   'clean'             => {
@@ -20,19 +20,20 @@ WriteMakefile(
 # First two lines are for Windows, second two lines are for Linux.
     (($^O =~ /MSWin32/)
     ?   ('LIBS'         => ['-lC:\\VXIPNP\\WinNT\\lib\\msc\\visa32.lib'], # needs full path on my setup
-         'INC'          => '-IC:\\VXIPNP\\WinNT\\include '.               # next one is for windows sdk
-                           '"-ID:\\Microsoft Platform SDK\\Include"',)
+         'INC'          => '-IC:\\VXIPNP\\WinNT\\include '.               
+                           '"-ID:\\Microsoft Platform SDK\\Include"',     # this one is for windows sdk
+)#         'CCFLAGS'      => '-MT',)
     :   ('LIBS'         => ['-lvisa -lstdc++'],                           # stdc++ is necessary here
          'INC'          => '-I/usr/local/vxipnp/linux/include/',)),
 
     'NAME'              => 'Lab::VISA',
-    'VERSION_FROM'      => 'README',
+    'VERSION_FROM'      => 'VISA.pm',
     'PREREQ_PM'         => {},
     'OBJECT'            => q/$(O_FILES)/,
     'DEFINE'            => '',
 
     (($] >= 5.005)
     ?   (ABSTRACT_FROM  => 'VISA.pod',
-         AUTHOR         => 'Daniel Schroeer (SCHROEER) <daniel.schroeer@physik.uni-muenchen.de>') : ()),
+         AUTHOR         => 'Daniel Schroeer <schroeer@cpan.org>') : ()),
 
 );

@@ -1,12 +1,19 @@
-/* $Id: visa.i 251 2005-12-08 23:24:40Z schroeer $ */
+/*$Id: visa.i 406 2006-04-22 14:23:06Z schroeer $*/
 
-%module VISA
+%perlcode %{
+$Lab::VISA::VERSION="1.12";
+%}
+
+%module "Lab::VISA"
+
+#define test 7;
 %{
 #include "visa.h"
 %}
 
 %include "visadef.i"
 %include "typemaps.i"
+
 
 %define %cstring_output_maxsize(TYPEMAP, SIZE)
 %typemap(in) (TYPEMAP, SIZE){
@@ -46,7 +53,8 @@ extern ViStatus _VI_FUNC viOpen(ViSession sesn, ViRsrc name, ViAccessMode mode, 
 extern ViStatus _VI_FUNC viSetAttribute(ViObject vi, ViAttr attrName, ViAttrState attrValue);
 extern ViStatus _VI_FUNC viGetAttribute(ViObject vi, ViAttr attrName, void *OUTPUT);
 
-extern ViStatus _VI_FUNC viWrite (ViSession vi, ViBuf  buf, ViUInt32 cnt, ViUInt32 *OUTPUT);
+%apply char* { ViBuf };
+extern ViStatus _VI_FUNC viWrite (ViSession vi, ViBuf buf, ViUInt32 cnt, ViUInt32 *OUTPUT);
 extern ViStatus _VI_FUNC viClose (ViObject vi);
 
 extern ViStatus viClear(ViSession vi);
