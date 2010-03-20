@@ -1,7 +1,7 @@
-/*$Id: visa.i 584 2010-03-19 21:13:44Z schroeer $*/
+/*$Id: visa.i 588 2010-03-20 22:45:47Z schroeer $*/
 
 %perlcode %{
-$Lab::VISA::VERSION="2.01";
+$Lab::VISA::VERSION="2.02";
 %}
 
 %module "Lab::VISA"
