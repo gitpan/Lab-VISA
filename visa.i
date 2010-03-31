@@ -1,7 +1,7 @@
-/*$Id: visa.i 588 2010-03-20 22:45:47Z schroeer $*/
+/*$Id: visa.i 597 2010-03-31 21:19:50Z schroeer $*/
 
 %perlcode %{
-$Lab::VISA::VERSION="2.02";
+$Lab::VISA::VERSION="2.03";
 %}
 
 %module "Lab::VISA"
@@ -17,18 +17,28 @@ $Lab::VISA::VERSION="2.02";
 
 %define %viread_output(TYPEMAP, SIZE, REALSIZE)
 %typemap(in) (TYPEMAP, SIZE){
+    /* this is the vi_Read input typemap */
     $2 = ($2_ltype)SvIV($input);
     $1 = ($1_ltype) malloc($2 + 1);
 }
 %typemap(argout) (TYPEMAP, SIZE, REALSIZE){
+    /* this is the vi_Read output typemap */
+
     if (argvi >= items){
          EXTEND(sp, 1);
     }
-
     $result = sv_newmortal();
-    sv_setpvn($result,(char *)$1, $3);
+    sv_setpvn($result,(char *)$1, *$3);
     argvi++;
     free($1);
+
+    if (argvi >= items){
+         EXTEND(sp, 1);
+    }
+    $result = sv_newmortal();
+    sv_setiv($result, *$3);
+    argvi++;
+    free($3);
 }
 %enddef
 
