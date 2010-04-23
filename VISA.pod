@@ -2,7 +2,7 @@
 
 =head1 NAME
 
-Lab::VISA - Perl interface to National Instrument's VISA library
+Lab::VISA - Perl interface to National Instruments' VISA library
 
 =head1 SYNOPSIS
 
@@ -10,7 +10,7 @@ Lab::VISA - Perl interface to National Instrument's VISA library
 
 =head1 DESCRIPTION
 
-This library offers a Perl interface to National Instrument's NI-VISA library.
+This library offers a Perl interface to National Instruments' NI-VISA library.
 
 With this library you can easily control the instruments in your lab (multimeters, voltage
 sources, magnet sources, pulse generators etc.) with Perl. You can perform
@@ -30,8 +30,7 @@ This manpage describes the perl syntax of the API. Each function is explained
 with some sentences which I cited from [1]. See this manual for further
 documentation on the library.
 
-Installation instructions can be found in the L<README> file located in the
-toplevel directory of the package.
+Installation instructions can be found in L<Lab::VISA::Installation>.
 
 A general tutorial for using Lab::VISA and assorted packages is located in L<Lab::VISA::Tutorial>.
 
@@ -187,7 +186,7 @@ This project was indicated to me only recently by a Lab::VISA user. It looks ver
 
 =head1 AUTHOR/COPYRIGHT
 
-This is $Id: VISA.pod 588 2010-03-20 22:45:47Z schroeer $
+This is $Id: VISA.pod 656 2010-04-23 20:09:05Z schroeer $
 
 This swig-based interface is
 
