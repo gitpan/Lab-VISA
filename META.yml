@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               Lab-VISA
-version:            2.04
+version:            2.05
 abstract:           Perl interface to National Instruments' VISA library
 author:
     - Daniel Schroeer <schroeer@cpan.org>
