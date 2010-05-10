@@ -1,7 +1,7 @@
-/*$Id: visa.i 657 2010-04-23 21:03:40Z schroeer $*/
+/*$Id: visa.i 685 2010-05-10 18:49:44Z schroeer $*/
 
 %perlcode %{
-$Lab::VISA::VERSION="2.05";
+$Lab::VISA::VERSION="2.06";
 %}
 
 %module "Lab::VISA"
@@ -38,7 +38,7 @@ $Lab::VISA::VERSION="2.05";
     $result = sv_newmortal();
     sv_setiv($result, *$3);
     argvi++;
-    free($3);
+    /* free($3); */
 }
 %enddef
 
