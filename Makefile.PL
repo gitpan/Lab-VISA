@@ -2,6 +2,7 @@
 
 use 5.008;
 use strict;
+use utf8;
 use ExtUtils::MakeMaker;
 
 # If you have Swig installed, un-comment the next line 
@@ -10,7 +11,7 @@ use ExtUtils::MakeMaker;
 # to delete the swig-generated files when doing 'make clean'.
 # TODO: should just check if swig is in the path
 
-#system("swig -perl5 -module Lab::VISA visa.i");
+# system("swig -perl5 -module Lab::VISA visa.i");
 
 WriteMakefile(
 #   'clean'             => {
@@ -24,8 +25,8 @@ WriteMakefile(
 # TODO: find out how to figure these out automatically.
 
     (($^O =~ /MSWin32/)
-    ?   ('LIBS'         => ['"-lC:\\VXIPNP\\WinNT\\lib\\msc\\visa32.lib"'],
-         'INC'          => '"-IC:\\VXIPNP\\WinNT\\include "',
+    ?   ('LIBS'         => ['"-lC:\\Program Files (x86)\\IVI Foundation\\VISA\\WinNT\\lib\\msc\\visa32.lib"'],
+         'INC'          => '"-IC:\\Program Files (x86)\\IVI Foundation\\VISA\\WinNT\\include"',
         )
     :   ('LIBS'         => ['-lvisa'],
          'INC'          => '-I/usr/local/include/',
@@ -36,7 +37,7 @@ WriteMakefile(
     'OBJECT'            => q/$(O_FILES)/,
     'META_MERGE'        => {
         resources => {
-            homepage    =>      'http://labvisa.de',
+            homepage    =>      'http://www.labmeasurement.de/',
             bugtracker  =>      'http://rt.cpan.org/NoAuth/Bugs.html?Dist=Lab-VISA',
             MailingList =>      'lab-visa-users@mailman.uni-regensburg.de',
         },
@@ -44,6 +45,6 @@ WriteMakefile(
 
     (($] >= 5.005)
     ?   (ABSTRACT_FROM  => 'VISA.pod',
-         AUTHOR         => 'Daniel Schroeer <schroeer@cpan.org>') : ()),
+         AUTHOR         => ['Daniel Schröer <schroeer@cpan.org>', 'Andreas K. Hüttel <mail@akhuettel.de>'] ) : ()),
 
 );

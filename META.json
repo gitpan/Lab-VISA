@@ -1,0 +1,47 @@
+{
+   "abstract" : "Perl interface to National Instruments VISA library",
+   "author" : [
+      "Daniel Schröer <schroeer@cpan.org>",
+      "Andreas K. Hüttel <mail@akhuettel.de>"
+   ],
+   "dynamic_config" : 1,
+   "generated_by" : "ExtUtils::MakeMaker version 6.62, CPAN::Meta::Converter version 2.112621",
+   "license" : [
+      "unknown"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "Lab-VISA",
+   "no_index" : {
+      "directory" : [
+         "t",
+         "inc"
+      ]
+   },
+   "prereqs" : {
+      "build" : {
+         "requires" : {
+            "ExtUtils::MakeMaker" : 0
+         }
+      },
+      "configure" : {
+         "requires" : {
+            "ExtUtils::MakeMaker" : 0
+         }
+      },
+      "runtime" : {
+         "requires" : {}
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "http://rt.cpan.org/NoAuth/Bugs.html?Dist=Lab-VISA"
+      },
+      "homepage" : "http://www.labmeasurement.de/",
+      "x_MailingList" : "lab-visa-users@mailman.uni-regensburg.de"
+   },
+   "version" : "2.95"
+}

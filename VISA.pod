@@ -2,7 +2,7 @@
 
 =head1 NAME
 
-Lab::VISA - Perl interface to National Instruments' VISA library
+Lab::VISA - Perl interface to National Instruments VISA library
 
 =head1 SYNOPSIS
 
@@ -176,7 +176,7 @@ This project was indicated to me only recently by a Lab::VISA user. It looks ver
 
 =head1 AUTHOR/COPYRIGHT
 
-This is $Id: VISA.pod 664 2010-04-26 20:31:06Z schroeer $
+This is $Id$
 
 This swig-based interface is
 
