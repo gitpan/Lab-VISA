@@ -1,8 +1,6 @@
 #!/usr/bin/perl
 
-use 5.008;
 use strict;
-use utf8;
 use ExtUtils::MakeMaker;
 
 # If you have Swig installed, un-comment the next line 
@@ -37,14 +35,13 @@ WriteMakefile(
     'OBJECT'            => q/$(O_FILES)/,
     'META_MERGE'        => {
         resources => {
-            homepage    =>      'http://www.labmeasurement.de/',
-            bugtracker  =>      'http://rt.cpan.org/NoAuth/Bugs.html?Dist=Lab-VISA',
-            MailingList =>      'lab-visa-users@mailman.uni-regensburg.de',
+            homepage    =>      'https://www.labmeasurement.de/',
+            bugtracker  =>      'https://www.labmeasurement.de/bugs/',
+            MailingList =>      'lab-measurement-users@mailman.uni-regensburg.de',
         },
     },
 
-    (($] >= 5.005)
-    ?   (ABSTRACT_FROM  => 'VISA.pod',
-         AUTHOR         => ['Daniel Schröer <schroeer@cpan.org>', 'Andreas K. Hüttel <mail@akhuettel.de>'] ) : ()),
+    'ABSTRACT_FROM'     => 'VISA.pod',
+    'AUTHOR'            => ['Daniel Schröer <schroeer@cpan.org>', 'Andreas K. Hüttel <mail@akhuettel.de>'],
 
 );
